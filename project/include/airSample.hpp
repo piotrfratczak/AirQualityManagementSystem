@@ -10,4 +10,8 @@
 class airSample{
 public:
   unordered_map<string, double> container;
+
+  airSample();
+
+  ~airSample();
 };

@@ -12,6 +12,7 @@ public:
   string description;
   unordered_map<string, airSample> container;
 
+  sensor();
 
-
+  ~sensor();
 };

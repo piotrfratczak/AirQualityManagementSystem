@@ -13,4 +13,8 @@ public:
   string id;
   string unit;
   string description;
+
+  attribute();
+
+  ~attribute();
 };

@@ -9,4 +9,8 @@ class system{
 public:
   unordered_map<int, sensor> container;
   vector<attribute> attr;
+
+  system();
+
+  ~system();
 };
