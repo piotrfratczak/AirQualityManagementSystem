@@ -5,12 +5,12 @@
 //! \date     8 December 2019
 
 
-class system{
+class airSystem{
 public:
   unordered_map<int, sensor> container;
   vector<attribute> attr;
 
-  system();
+  airSystem();
 
-  ~system();
+  ~airSystem();
 };

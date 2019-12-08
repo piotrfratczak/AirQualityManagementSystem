@@ -1,4 +1,3 @@
-#include "attribute.hpp"
 #include "airSample.hpp"
 
 //! \file     sensor.hpp
