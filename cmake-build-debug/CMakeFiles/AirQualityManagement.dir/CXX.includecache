@@ -12,6 +12,12 @@ C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/at
 unordered_map
 -
 
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/airSystem.hpp
+sensor.hpp
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/sensor.hpp
+vector
+-
+
 C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/attribute.hpp
 iostream
 -
@@ -29,6 +35,10 @@ C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/ai
 C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/attribute.cpp
 ../include/attribute.hpp
 C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/attribute.hpp
+
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/main.cpp
+../include/airSystem.hpp
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/airSystem.hpp
 
 C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/sensor.cpp
 ../include/sensor.hpp
