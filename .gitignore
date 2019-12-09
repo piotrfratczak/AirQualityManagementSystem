@@ -1,0 +1,6 @@
+*.xml
+build/
+*.txt
+.*project
+.idea/
+cmake-build-debug/
