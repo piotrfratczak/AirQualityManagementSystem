@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.3.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\pitf9\CLionProjects\AirQualityManagement
+CMAKE_SOURCE_DIR = C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug\CMakeFiles C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,32 +122,140 @@ AirQualityManagement/fast:
 	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/build
 .PHONY : AirQualityManagement/fast
 
-main.obj: main.cpp.obj
+project/src/airSample.obj: project/src/airSample.cpp.obj
 
-.PHONY : main.obj
+.PHONY : project/src/airSample.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+project/src/airSample.cpp.obj:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.obj
+.PHONY : project/src/airSample.cpp.obj
 
-main.i: main.cpp.i
+project/src/airSample.i: project/src/airSample.cpp.i
 
-.PHONY : main.i
+.PHONY : project/src/airSample.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/main.cpp.i
-.PHONY : main.cpp.i
+project/src/airSample.cpp.i:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.i
+.PHONY : project/src/airSample.cpp.i
 
-main.s: main.cpp.s
+project/src/airSample.s: project/src/airSample.cpp.s
 
-.PHONY : main.s
+.PHONY : project/src/airSample.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/main.cpp.s
-.PHONY : main.cpp.s
+project/src/airSample.cpp.s:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.s
+.PHONY : project/src/airSample.cpp.s
+
+project/src/airSystem.obj: project/src/airSystem.cpp.obj
+
+.PHONY : project/src/airSystem.obj
+
+# target to build an object file
+project/src/airSystem.cpp.obj:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.obj
+.PHONY : project/src/airSystem.cpp.obj
+
+project/src/airSystem.i: project/src/airSystem.cpp.i
+
+.PHONY : project/src/airSystem.i
+
+# target to preprocess a source file
+project/src/airSystem.cpp.i:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.i
+.PHONY : project/src/airSystem.cpp.i
+
+project/src/airSystem.s: project/src/airSystem.cpp.s
+
+.PHONY : project/src/airSystem.s
+
+# target to generate assembly for a file
+project/src/airSystem.cpp.s:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.s
+.PHONY : project/src/airSystem.cpp.s
+
+project/src/attribute.obj: project/src/attribute.cpp.obj
+
+.PHONY : project/src/attribute.obj
+
+# target to build an object file
+project/src/attribute.cpp.obj:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.obj
+.PHONY : project/src/attribute.cpp.obj
+
+project/src/attribute.i: project/src/attribute.cpp.i
+
+.PHONY : project/src/attribute.i
+
+# target to preprocess a source file
+project/src/attribute.cpp.i:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.i
+.PHONY : project/src/attribute.cpp.i
+
+project/src/attribute.s: project/src/attribute.cpp.s
+
+.PHONY : project/src/attribute.s
+
+# target to generate assembly for a file
+project/src/attribute.cpp.s:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.s
+.PHONY : project/src/attribute.cpp.s
+
+project/src/main.obj: project/src/main.cpp.obj
+
+.PHONY : project/src/main.obj
+
+# target to build an object file
+project/src/main.cpp.obj:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.obj
+.PHONY : project/src/main.cpp.obj
+
+project/src/main.i: project/src/main.cpp.i
+
+.PHONY : project/src/main.i
+
+# target to preprocess a source file
+project/src/main.cpp.i:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.i
+.PHONY : project/src/main.cpp.i
+
+project/src/main.s: project/src/main.cpp.s
+
+.PHONY : project/src/main.s
+
+# target to generate assembly for a file
+project/src/main.cpp.s:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.s
+.PHONY : project/src/main.cpp.s
+
+project/src/sensor.obj: project/src/sensor.cpp.obj
+
+.PHONY : project/src/sensor.obj
+
+# target to build an object file
+project/src/sensor.cpp.obj:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.obj
+.PHONY : project/src/sensor.cpp.obj
+
+project/src/sensor.i: project/src/sensor.cpp.i
+
+.PHONY : project/src/sensor.i
+
+# target to preprocess a source file
+project/src/sensor.cpp.i:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.i
+.PHONY : project/src/sensor.cpp.i
+
+project/src/sensor.s: project/src/sensor.cpp.s
+
+.PHONY : project/src/sensor.s
+
+# target to generate assembly for a file
+project/src/sensor.cpp.s:
+	$(MAKE) -f CMakeFiles\AirQualityManagement.dir\build.make CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.s
+.PHONY : project/src/sensor.cpp.s
 
 # Help Target
 help:
@@ -158,9 +266,21 @@ help:
 	@echo ... AirQualityManagement
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... project/src/airSample.obj
+	@echo ... project/src/airSample.i
+	@echo ... project/src/airSample.s
+	@echo ... project/src/airSystem.obj
+	@echo ... project/src/airSystem.i
+	@echo ... project/src/airSystem.s
+	@echo ... project/src/attribute.obj
+	@echo ... project/src/attribute.i
+	@echo ... project/src/attribute.s
+	@echo ... project/src/main.obj
+	@echo ... project/src/main.i
+	@echo ... project/src/main.s
+	@echo ... project/src/sensor.obj
+	@echo ... project/src/sensor.i
+	@echo ... project/src/sensor.s
 .PHONY : help
 
 

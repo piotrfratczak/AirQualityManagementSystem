@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/pitf9/CLionProjects/AirQualityManagement/main.cpp" "C:/Users/pitf9/CLionProjects/AirQualityManagement/cmake-build-debug/CMakeFiles/AirQualityManagement.dir/main.cpp.obj"
+  "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/airSample.cpp" "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/cmake-build-debug/CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.obj"
+  "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/airSystem.cpp" "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/cmake-build-debug/CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.obj"
+  "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/attribute.cpp" "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/cmake-build-debug/CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.obj"
+  "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/main.cpp" "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/cmake-build-debug/CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.obj"
+  "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/sensor.cpp" "C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/cmake-build-debug/CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

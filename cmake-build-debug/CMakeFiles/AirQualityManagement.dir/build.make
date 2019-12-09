@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.3.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\pitf9\CLionProjects\AirQualityManagement
+CMAKE_SOURCE_DIR = C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/AirQualityManagement.dir/depend.make
@@ -56,32 +56,92 @@ include CMakeFiles/AirQualityManagement.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/AirQualityManagement.dir/flags.make
 
-CMakeFiles/AirQualityManagement.dir/main.cpp.obj: CMakeFiles/AirQualityManagement.dir/flags.make
-CMakeFiles/AirQualityManagement.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AirQualityManagement.dir/main.cpp.obj"
-	C:\Users\pitf9\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AirQualityManagement.dir\main.cpp.obj -c C:\Users\pitf9\CLionProjects\AirQualityManagement\main.cpp
+CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.obj: CMakeFiles/AirQualityManagement.dir/flags.make
+CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.obj: ../project/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.obj"
+	C:\Users\pitf9\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AirQualityManagement.dir\project\src\main.cpp.obj -c C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\main.cpp
 
-CMakeFiles/AirQualityManagement.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirQualityManagement.dir/main.cpp.i"
-	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pitf9\CLionProjects\AirQualityManagement\main.cpp > CMakeFiles\AirQualityManagement.dir\main.cpp.i
+CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.i"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\main.cpp > CMakeFiles\AirQualityManagement.dir\project\src\main.cpp.i
 
-CMakeFiles/AirQualityManagement.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirQualityManagement.dir/main.cpp.s"
-	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pitf9\CLionProjects\AirQualityManagement\main.cpp -o CMakeFiles\AirQualityManagement.dir\main.cpp.s
+CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.s"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\main.cpp -o CMakeFiles\AirQualityManagement.dir\project\src\main.cpp.s
+
+CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.obj: CMakeFiles/AirQualityManagement.dir/flags.make
+CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.obj: ../project/src/airSystem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.obj"
+	C:\Users\pitf9\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AirQualityManagement.dir\project\src\airSystem.cpp.obj -c C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\airSystem.cpp
+
+CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.i"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\airSystem.cpp > CMakeFiles\AirQualityManagement.dir\project\src\airSystem.cpp.i
+
+CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.s"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\airSystem.cpp -o CMakeFiles\AirQualityManagement.dir\project\src\airSystem.cpp.s
+
+CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.obj: CMakeFiles/AirQualityManagement.dir/flags.make
+CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.obj: ../project/src/airSample.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.obj"
+	C:\Users\pitf9\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AirQualityManagement.dir\project\src\airSample.cpp.obj -c C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\airSample.cpp
+
+CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.i"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\airSample.cpp > CMakeFiles\AirQualityManagement.dir\project\src\airSample.cpp.i
+
+CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.s"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\airSample.cpp -o CMakeFiles\AirQualityManagement.dir\project\src\airSample.cpp.s
+
+CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.obj: CMakeFiles/AirQualityManagement.dir/flags.make
+CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.obj: ../project/src/attribute.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.obj"
+	C:\Users\pitf9\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AirQualityManagement.dir\project\src\attribute.cpp.obj -c C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\attribute.cpp
+
+CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.i"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\attribute.cpp > CMakeFiles\AirQualityManagement.dir\project\src\attribute.cpp.i
+
+CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.s"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\attribute.cpp -o CMakeFiles\AirQualityManagement.dir\project\src\attribute.cpp.s
+
+CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.obj: CMakeFiles/AirQualityManagement.dir/flags.make
+CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.obj: ../project/src/sensor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.obj"
+	C:\Users\pitf9\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AirQualityManagement.dir\project\src\sensor.cpp.obj -c C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\sensor.cpp
+
+CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.i"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\sensor.cpp > CMakeFiles\AirQualityManagement.dir\project\src\sensor.cpp.i
+
+CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.s"
+	C:\Users\pitf9\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\project\src\sensor.cpp -o CMakeFiles\AirQualityManagement.dir\project\src\sensor.cpp.s
 
 # Object files for target AirQualityManagement
 AirQualityManagement_OBJECTS = \
-"CMakeFiles/AirQualityManagement.dir/main.cpp.obj"
+"CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.obj" \
+"CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.obj" \
+"CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.obj" \
+"CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.obj" \
+"CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.obj"
 
 # External object files for target AirQualityManagement
 AirQualityManagement_EXTERNAL_OBJECTS =
 
-AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/main.cpp.obj
+AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/project/src/main.cpp.obj
+AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/project/src/airSystem.cpp.obj
+AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/project/src/airSample.cpp.obj
+AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/project/src/attribute.cpp.obj
+AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/project/src/sensor.cpp.obj
 AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/build.make
 AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/linklibs.rsp
 AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/objects1.rsp
 AirQualityManagement.exe: CMakeFiles/AirQualityManagement.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable AirQualityManagement.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable AirQualityManagement.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\AirQualityManagement.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -94,6 +154,6 @@ CMakeFiles/AirQualityManagement.dir/clean:
 .PHONY : CMakeFiles/AirQualityManagement.dir/clean
 
 CMakeFiles/AirQualityManagement.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\pitf9\CLionProjects\AirQualityManagement C:\Users\pitf9\CLionProjects\AirQualityManagement C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug C:\Users\pitf9\CLionProjects\AirQualityManagement\cmake-build-debug\CMakeFiles\AirQualityManagement.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug C:\Users\pitf9\Documents\Studia\INSA\SOE\AirQualityManagement\cmake-build-debug\CMakeFiles\AirQualityManagement.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/AirQualityManagement.dir/depend
 

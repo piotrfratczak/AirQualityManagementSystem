@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/airSample.hpp
+attribute.hpp
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/attribute.hpp
+unordered_map
+-
+
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/attribute.hpp
+iostream
+-
+string
+-
+
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/sensor.hpp
+airSample.hpp
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/airSample.hpp
+
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/airSample.cpp
+../include/airSample.hpp
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/airSample.hpp
+
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/attribute.cpp
+../include/attribute.hpp
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/attribute.hpp
+
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/src/sensor.cpp
+../include/sensor.hpp
+C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/project/include/sensor.hpp
+
