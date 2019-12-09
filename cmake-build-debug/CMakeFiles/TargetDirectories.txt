@@ -1,3 +1,0 @@
-C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/cmake-build-debug/CMakeFiles/AirQualityManagement.dir
-C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/pitf9/Documents/Studia/INSA/SOE/AirQualityManagement/cmake-build-debug/CMakeFiles/rebuild_cache.dir
