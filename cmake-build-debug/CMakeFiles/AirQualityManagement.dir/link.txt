@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2018.3.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\AirQualityManagement.dir/objects.a
-C:\Users\pitf9\MinGW\bin\ar.exe cr CMakeFiles\AirQualityManagement.dir/objects.a @CMakeFiles\AirQualityManagement.dir\objects1.rsp
-C:\Users\pitf9\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\AirQualityManagement.dir/objects.a -Wl,--no-whole-archive  -o AirQualityManagement.exe -Wl,--out-implib,libAirQualityManagement.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\AirQualityManagement.dir\linklibs.rsp
