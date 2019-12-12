@@ -10,6 +10,7 @@ OBJECTS = $(SOURCES:$(SRC_PATH)/%.$(SRC_EXT)=$(BUILD_PATH)/%.o)
 
 CFLAGS += -g -O0
 
+
 all : path $(BIN_PATH)/$(BIN_NAME)
 
 path :
@@ -18,7 +19,7 @@ path :
 
 
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
-		$(CXX) $(CXXFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
+		$(CXX) $(CFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 	
 
 $(BIN_PATH)/$(BIN_NAME) : $(OBJECTS)
