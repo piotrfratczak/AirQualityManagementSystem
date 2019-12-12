@@ -8,7 +8,7 @@ SRC_EXT = cpp
 SOURCES = $(shell find $(SRC_PATH) -name '*.$(SRC_EXT)' | sort -k 1nr | cut -f2-)
 OBJECTS = $(SOURCES:$(SRC_PATH)/%.$(SRC_EXT)=$(BUILD_PATH)/%.o)
 
-CFLAGS += -g
+CFLAGS += -g -O0
 
 all : path $(BIN_PATH)/$(BIN_NAME)
 

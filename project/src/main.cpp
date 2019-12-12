@@ -13,5 +13,4 @@ int main(){
   test.parseData("./data/data_10sensors_1year.csv");
 
   return 0;
-
 }
