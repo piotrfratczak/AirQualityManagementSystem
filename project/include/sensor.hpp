@@ -1,5 +1,4 @@
 #include "airSample.hpp"
-
 //! \file     sensor.hpp
 //! \authors
 //! \date     8 December 2019
@@ -16,6 +15,8 @@ public:
   unordered_map<string, airSample> container;
 
   sensor(string, double, double, string);
+
+  sensor(vector<string>);
 
   sensor();
 

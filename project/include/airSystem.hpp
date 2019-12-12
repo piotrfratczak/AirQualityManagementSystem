@@ -1,5 +1,4 @@
 #include "sensor.hpp"
-#include <vector>
 #include <fstream>
 //! \file     system.hpp
 //! \authors
@@ -20,6 +19,9 @@ public:
   ~airSystem();
 
   void parseSensor(string);
+
+  void parseAttribute(string);
+
 
   void parseData(string);
 };

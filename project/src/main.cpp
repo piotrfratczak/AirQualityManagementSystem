@@ -7,6 +7,8 @@ int main(){
 
   test.parseSensor("./data/Sensors.csv");
 
+  test.parseAttribute("./data/AttributeType.csv");
+
 
   return 0;
 

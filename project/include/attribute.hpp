@@ -1,6 +1,6 @@
-
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -14,6 +14,10 @@ public:
   string id;
   string unit;
   string description;
+
+  attribute(string, string, string);
+
+  attribute(vector<string>);
 
   attribute();
 
