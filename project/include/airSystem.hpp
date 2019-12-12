@@ -6,14 +6,14 @@
 
 
 class airSystem{
-public:
+private:
   /*
    * Map id to sensor
    */
   unordered_map<string, sensor*> container;
 
   unordered_map<string, attribute> attr;
-
+public:
   airSystem();
 
   ~airSystem();
