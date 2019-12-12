@@ -19,32 +19,14 @@
       std::size_t left = temp.find_first_of('"');
       temp=temp.substr(left+1);
       line=temp;
-      string id;
-      int latitude;
-      int longitude;
-      string description;
+      vector<string> line_split;
       for(int i = 0; i < 4; ++i){
         std::size_t right = line.find_first_of(';');
         temp = line.substr(0, right);
         line = line.substr(right+1);
-        switch(i){
-          case 0:
-            id = temp;
-            break;
-          case 1:
-            latitude = std::stod(temp);
-            break;
-          case 2:
-            longitude = std::stod(temp);
-            break;
-          case 3:
-            description = temp;
-            break;
-          default:
-            break;
-        }
+        line_split.push_back(temp);
       }
-      sensor* temp_s = new sensor(id,latitude,longitude,description);
-      this->container.emplace(id, *temp_s);
+      sensor* temp_s = new sensor(line_split[0],stod(line_split[1]),stod(line_split[2]),line_split[3]);
+      this->container.emplace(line_split[0], *temp_s);
     }
   }
