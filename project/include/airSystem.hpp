@@ -8,12 +8,14 @@
 
 class AirSystem{
 public:
-  /*
-   * Map id to sensor
-   */
-  unordered_map<string, Sensor*> container;
+    /*
+     * Map id to sensor
+     */
+    unordered_map<string, Sensor*> container;
 
-  unordered_map<string, Attribute> attr;
+    unordered_map<string, Attribute> attr;
+
+public:
 
   AirSystem();
 
@@ -24,4 +26,6 @@ public:
   void parseAttribute(string);
 
   void parseData(string);
+
+  void menu();
 };

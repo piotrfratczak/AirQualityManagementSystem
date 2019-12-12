@@ -88,3 +88,9 @@
         this->container.at(line_split[1])->addSample(line_split[0],line_split[2], stod(line_split[3]));
     }
   }
+
+  void AirSystem::menu() {
+    cout << "1. Get air quality" << endl
+         << "2. Get inactive sensors" << endl
+         << "3. Get sensors with similar readings" << endl;
+  }
