@@ -9,6 +9,9 @@
 
 class airSample{
 public:
+  /*
+   * map id to value
+   */
   unordered_map<string, double> container;
 
   airSample();
