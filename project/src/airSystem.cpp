@@ -72,7 +72,7 @@
       int k = 0;
       for(int i = 0; i < line.size(); ++i)
         if(line[i] != 0) line[k++] = line[i];
-
+      line = line.substr(0,k);
       string temp = line;
       std::size_t left = temp.find_first_of(34);
       temp=temp.substr(left+1);
@@ -84,13 +84,7 @@
         line = line.substr(right+1);
         line_split.push_back(temp);
       }
-
-//        cout << "string = " << line_split[1] << "\t size = " << line_split[1].size() << endl;
-
-      if(this->container.find(line_split[1]) == this->container.end())
-        cout << "There is no key = " << line_split[1] << endl;
-      else
+      if(line_split[1].size() > 0)
         this->container.at(line_split[1])->addSample(line_split[0],line_split[2], stod(line_split[3]));
-
     }
   }
