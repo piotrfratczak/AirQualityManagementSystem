@@ -3,7 +3,7 @@
 
 int main(){
 
-  airSystem test;
+  AirSystem test;
 
   test.parseSensor("./data/Sensors.csv");
 

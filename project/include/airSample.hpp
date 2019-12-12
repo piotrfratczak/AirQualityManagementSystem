@@ -7,14 +7,14 @@
 
 
 
-class airSample{
+class AirSample{
 public:
   /*
    * map id to value
    */
   unordered_map<string, double> container;
 
-  airSample();
+  AirSample();
 
-  ~airSample();
+  ~AirSample();
 };
