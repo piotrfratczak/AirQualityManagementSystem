@@ -1,6 +1,6 @@
 #include "../include/airSample.hpp"
 
 
-airSample::airSample(){}
+AirSample::AirSample(){}
 
-airSample::~airSample(){}
+AirSample::~AirSample(){}

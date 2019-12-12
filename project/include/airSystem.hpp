@@ -5,18 +5,18 @@
 //! \date     8 December 2019
 
 
-class airSystem{
+class AirSystem{
 public:
   /*
    * Map id to sensor
    */
-  unordered_map<string, sensor*> container;
+  unordered_map<string, Sensor*> container;
 
-  unordered_map<string, attribute> attr;
+  unordered_map<string, Attribute> attr;
 
-  airSystem();
+  AirSystem();
 
-  ~airSystem();
+  ~AirSystem();
 
   void parseSensor(string);
 

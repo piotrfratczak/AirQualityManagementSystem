@@ -2,11 +2,11 @@
 #include <algorithm>
 
 
-  airSystem::airSystem(){}
+  AirSystem::AirSystem(){}
 
-  airSystem::~airSystem(){}
+  AirSystem::~AirSystem(){}
 
-  void airSystem::parseSensor(string filename){
+  void AirSystem::parseSensor(string filename){
     //relative path is based on the path of makefile.
     ifstream file(filename);
     string line;
@@ -27,13 +27,13 @@
         line = line.substr(right+1);
         line_split.push_back(temp);
       }
-      sensor* temp_s = new sensor(line_split[0],stod(line_split[1]),stod(line_split[2]),line_split[3]);
+      Sensor* temp_s = new Sensor(line_split[0],stod(line_split[1]),stod(line_split[2]),line_split[3]);
       this->container.emplace(line_split[0], temp_s);
     }
   }
 
 
-  void airSystem::parseAttribute(string filename){
+  void AirSystem::parseAttribute(string filename){
     //relative path is based on the path of makefile.
     ifstream file(filename);
     string line;
@@ -54,12 +54,12 @@
         line = line.substr(right+1);
         line_split.push_back(temp);
       }
-      attribute* chem = new attribute(line_split[0], line_split[1], line_split[2]);
+      Attribute* chem = new Attribute(line_split[0], line_split[1], line_split[2]);
       this->attr.emplace(line_split[0], *chem);
     }
   }
 
-  void airSystem::parseData(string filename){
+  void AirSystem::parseData(string filename){
     //relative path is based on the path of makefile.
     ifstream file(filename);
     string line;

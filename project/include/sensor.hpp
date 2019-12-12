@@ -3,7 +3,7 @@
 //! \authors
 //! \date     8 December 2019
 
-class sensor{
+class Sensor{
 public:
   string id;
   double latitude;
@@ -12,15 +12,15 @@ public:
   /*
    * map time to airSample
    */
-  unordered_map<string, airSample> container;
+  unordered_map<string, AirSample> container;
 
-  sensor(string, double, double, string);
+  Sensor(string, double, double, string);
 
-  sensor(vector<string>);
+  Sensor(vector<string>);
 
-  sensor();
+  Sensor();
 
-  ~sensor();
+  ~Sensor();
 
   void addSample(string, string, double);
 };

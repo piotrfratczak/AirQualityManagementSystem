@@ -9,17 +9,17 @@ using namespace std;
 //! \date     8 December 2019
 
 
-class attribute{
+class Attribute{
 public:
   string id;
   string unit;
   string description;
 
-  attribute(string, string, string);
+  Attribute(string, string, string);
 
-  attribute(vector<string>);
+  Attribute(vector<string>);
 
-  attribute();
+  Attribute();
 
-  ~attribute();
+  ~Attribute();
 };
