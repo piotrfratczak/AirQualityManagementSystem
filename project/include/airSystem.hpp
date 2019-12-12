@@ -10,9 +10,9 @@ public:
   /*
    * Map id to sensor
    */
-  unordered_map<string, sensor> container;
+  unordered_map<string, sensor*> container;
 
-  vector<attribute> attr;
+  unordered_map<string, attribute> attr;
 
   airSystem();
 
@@ -21,7 +21,6 @@ public:
   void parseSensor(string);
 
   void parseAttribute(string);
-
 
   void parseData(string);
 };

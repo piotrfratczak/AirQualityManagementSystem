@@ -22,4 +22,5 @@ public:
 
   ~sensor();
 
+  void addSample(string, string, double);
 };
