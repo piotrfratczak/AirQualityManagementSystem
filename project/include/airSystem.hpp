@@ -7,13 +7,21 @@
 
 
 class AirSystem{
-public:
-    /*
-     * Map id to sensor
-     */
-    unordered_map<string, Sensor*> container;
+private:
+  // Map id to sensor
+  unordered_map<string, Sensor*> container;
 
-    unordered_map<string, Attribute> attr;
+  unordered_map<string, Attribute> attr;
+
+  int getChoice(int, int);
+
+  void getAirQualityById();
+
+  void getAirQualityByLocation();
+
+  void getInactiveSensors();
+
+  void getSimilarSensors();
 
 public:
 
@@ -28,4 +36,5 @@ public:
   void parseData(string);
 
   void menu();
+
 };

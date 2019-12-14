@@ -60,6 +60,7 @@
   }
 
   void AirSystem::parseData(string filename){
+    cout << endl << "Fetching data..." << endl << endl;
     //relative path is based on the path of makefile.
     ifstream file(filename);
     string line;
@@ -90,7 +91,53 @@
   }
 
   void AirSystem::menu() {
-    cout << "1. Get air quality" << endl
-         << "2. Get inactive sensors" << endl
-         << "3. Get sensors with similar readings" << endl;
+    cout << "0. Quit"                               << endl
+         << "1. Get air quality by sensor ID"       << endl
+         << "2. Get air quality by location"        << endl
+         << "3. Get inactive sensors"               << endl
+         << "4. Get sensors with similar readings"  << endl;
+
+    switch(getChoice(0, 4)){
+      case 0:
+        break;
+      case 1:
+        getAirQualityById();
+        break;
+      case 2:
+        getAirQualityByLocation();
+        break;
+      case 3:
+        getInactiveSensors();
+        break;
+      case 4:
+        getSimilarSensors();
+        break;
+      default:
+        exit(-1);
+    }
+
   }
+
+  int AirSystem::getChoice(int minChoice, int maxChoice){
+    int choice;
+    while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
+      char c;
+      while ((c = char(getchar())) != '\n' && c != EOF);
+      cout << "There is no such option." << endl
+           << "Enter an integer between " << minChoice << " and " << maxChoice << "." << endl;
+    }
+    return choice;
+  }
+
+  void AirSystem::getAirQualityById() {
+    cout << "Input sensor's ID (0 - "
+         << container.size()-1 << "): ";
+    int sensorID = getChoice(0, container.size()-1);
+    cout << endl << "Input date (format: yyy-mm-dd): ";
+  }
+
+  void AirSystem::getAirQualityByLocation() {}
+
+  void AirSystem::getInactiveSensors() {}
+
+  void AirSystem::getSimilarSensors() {}
