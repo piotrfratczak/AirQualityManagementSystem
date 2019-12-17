@@ -12,6 +12,6 @@ AirSample::AirSample(){}
 
 AirSample::~AirSample(){}
 
-string AirSample::getAirQuality() {
-  return "no";
+int AirSample::getAirQuality() {
+  return 0;
 }

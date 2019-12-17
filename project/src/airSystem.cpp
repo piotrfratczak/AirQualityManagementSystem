@@ -1,34 +1,6 @@
 #include "../include/airSystem.hpp"
 #include <algorithm>
 
-int AirSystem::getChoice(int minChoice, int maxChoice){
-  int choice;
-  while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
-    char c;
-    while ((c = char(getchar())) != '\n' && c != EOF);
-    cout << "There is no such option." << endl
-         << "Enter an integer between " << minChoice << " and " << maxChoice << "." << endl;
-  }
-  return choice;
-}
-
-void AirSystem::getAirQualityById() {
-  cout << "Input sensor's ID (0 - "
-       << container.size()-1 << "): ";
-  int sensorID = getChoice(0, container.size()-1);
-  cout << endl << "Input date (format: yyy-mm-dd): ";
-  //TODO: to be optimized
-  string date;
-  cin >> date;
-  //string quality = container.at("Sensor" + sensorID)->getAirQuality(date);
-  //cout << "Air quality on " << date << ": " << quality;
-}
-
-void AirSystem::getAirQualityByLocation() {}
-
-void AirSystem::getInactiveSensors() {}
-
-void AirSystem::getSimilarSensors() {}
 
 AirSystem::AirSystem(){}
 
@@ -145,3 +117,56 @@ void AirSystem::menu() {
   }
 
 }
+
+void AirSystem::getAirQualityByLocation() {}
+
+
+int AirSystem::getChoice(int minChoice, int maxChoice){
+  int choice;
+//  while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
+//    char c;
+//    while ((c = char(getchar())) != '\n' && c != EOF);
+//    cout << "There is no such option." << endl
+//         << "Enter an integer between " << minChoice << " and " << maxChoice << "." << endl;
+//  }
+  return choice;
+}
+
+void AirSystem::getAirQualityById() {
+  cout << "Input sensor's ID (0 - "
+       << container.size()-1 << "): ";
+  int sensorID = getChoice(0, container.size()-1);
+  cout << endl << "Input date (format: yyy-mm-dd): ";
+  //TODO: to be optimized
+  string date;
+  cin >> date;
+  //string quality = container.at("Sensor" + sensorID)->getAirQuality(date);
+  //cout << "Air quality on " << date << ": " << quality;
+
+  string time;
+  string id = "Sensor" + to_string(sensorID);
+  int sum = 0;
+  auto mapTime2Airsample = this->container.at(id)->container;
+  for(auto it = mapTime2Airsample.begin(); it != mapTime2Airsample.end(); ++it){
+    if(it->first >= time)
+      sum += it->second.getAirQuality();
+  }
+}
+
+void AirSystem::getInactiveSensors() {
+  int threshold = 1000;
+  for(auto& pair : this->container){
+    if(pair.second->getFrequency() <= threshold)
+      cout << pair.first << endl;
+  }
+}
+
+void AirSystem::getSimilarSensors() {
+  //check if frequency is similar.
+
+}
+
+
+
+
+

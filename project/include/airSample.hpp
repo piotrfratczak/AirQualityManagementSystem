@@ -22,5 +22,5 @@ public:
 
   ~AirSample();
 
-  string getAirQuality();
+  int getAirQuality();
 };
