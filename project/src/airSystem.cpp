@@ -113,7 +113,7 @@ void AirSystem::getAirQualityById() {
   cout << "Input sensor's ID (0 - "
        << container.size()-1 << "): ";
   int sensorID = getChoice(0, container.size()-1);
-  cout << endl << "Input date (format: yyy-mm-dd): ";
+  cout << endl << "Input begin date (format: yyy-mm-dd): " ;
   //TODO: to be optimized
   string date;
   cin >> date;
@@ -121,6 +121,8 @@ void AirSystem::getAirQualityById() {
   //cout << "Air quality on " << date << ": " << quality;
 
   string time_begin = date + "T00:00:00.0000000";
+
+  cout << endl << "Input end date (format: yyy-mm-dd): ";
   cin >> date;
   string time_end = date + "T00:00:00.0000000";
 
@@ -136,7 +138,9 @@ void AirSystem::getAirQualityById() {
   cout << "Air quality level is = " << level[(int)(sum/count)] << endl;
 }
 
-void AirSystem::getAirQualityByLocation() {}
+void AirSystem::getAirQualityByLocation() {
+
+}
 
 void AirSystem::getInactiveSensors() {}
 
