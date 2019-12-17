@@ -114,32 +114,47 @@ void AirSystem::getAirQualityById() {
        << container.size()-1 << "): ";
   int sensorID = getChoice(0, container.size()-1);
   cout << endl << "Input begin date (format: yyy-mm-dd): " ;
+
   //TODO: to be optimized
   string date;
   cin >> date;
-  //string quality = container.at("Sensor" + sensorID)->getAirQuality(date);
-  //cout << "Air quality on " << date << ": " << quality;
-
   string time_begin = date + "T00:00:00.0000000";
-
   cout << endl << "Input end date (format: yyy-mm-dd): ";
   cin >> date;
   string time_end = date + "T00:00:00.0000000";
 
-
-  auto sen = this->container.at("Sensor" + to_string(sensorID))->container;
+  auto time2air = this->container.at("Sensor" + to_string(sensorID))->container;
   int sum = 0, count = 0;
-  for(auto it = sen.begin(); it != sen.end(); ++it){
+  for(auto it = time2air.begin(); it != time2air.end(); ++it){
     if(it->first >= time_begin && it->first <= time_end){
       sum += it->second.getAirQuality();
       count++;
     }
   }
-  cout << "Air quality level is = " << level[(int)(sum/count)] << endl;
+  cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
 }
 
 void AirSystem::getAirQualityByLocation() {
-
+  cout << "Please choose one location :" << endl;
+  cout << "Sensor ID \t\t latitude \t\t longitude " << endl;
+  for(auto it = this->container.begin(); it != this->container.end(); ++it){
+    cout << it->first << " \t " << it->second->latitude << "\t" << it->second->longitude << endl;
+  }
+  string sensorID;
+  cout << "Choose ID : ";
+  cin >> sensorID;
+  sensorID = "Sensor" + sensorID;
+  int sum = 0, count = 0;
+  if(this->container.find(id) != this->container.end()){
+    auto time2air = this->container.at(sensorID)->container;
+    for(auto it = time2air.begin(); it != time2air.end(); ++it){
+        sum += it->second.getAirQuality();
+        count++;
+    }
+  }
+  else
+    cout << "Can not find this id" << endl;
+  cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
 }
 
 void AirSystem::getInactiveSensors() {}
