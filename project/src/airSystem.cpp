@@ -39,9 +39,9 @@ vector<vector<string>> AirSystem::parseFile(string filename){
 
 void AirSystem::parseSensor(string filename){
   //relative path is based on the path of makefile.
-  auto ans = this->parseFile(filename);
+  vector<vector<string>> ans = this->parseFile(filename);
   for(int i = 0; i < ans.size(); ++i){
-    auto line_split = ans[0];
+    auto line_split = ans[i];
     Sensor* temp_s = new Sensor(line_split[0],stod(line_split[1]),stod(line_split[2]),line_split[3]);
     this->container.emplace(line_split[0], temp_s);
   }
@@ -50,9 +50,9 @@ void AirSystem::parseSensor(string filename){
 
 void AirSystem::parseAttribute(string filename){
   //relative path is based on the path of makefile.
-  auto ans = this->parseFile(filename);
+  vector<vector<string>> ans = this->parseFile(filename);
   for(int i = 0; i < ans.size(); ++i){
-    auto line_split = ans[0];
+    auto line_split = ans[i];
     Attribute* chem = new Attribute(line_split[0], line_split[1], line_split[2]);
     this->attributes.emplace(line_split[0], *chem);
   }
@@ -133,7 +133,7 @@ void AirSystem::getAirQualityById() {
       count++;
     }
   }
-  cout << "Air quality level is = " << sum/count << endl;
+  cout << "Air quality level is = " << level[(int)(sum/count)] << endl;
 }
 
 void AirSystem::getAirQualityByLocation() {}
