@@ -100,12 +100,12 @@ void AirSystem::menu() {
 
 int AirSystem::getChoice(int minChoice, int maxChoice){
   int choice;
-//  while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
-//    char c;
-//    while ((c = char(getchar())) != '\n' && c != EOF);
-//    cout << "There is no such option." << endl
-//         << "Enter an integer between " << minChoice << " and " << maxChoice << "." << endl;
-//  }
+  while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
+    char c;
+    while ((c = char(getchar())) != '\n' && c != EOF);
+    cout << "There is no such option." << endl
+         << "Enter an integer between " << minChoice << " and " << maxChoice << "." << endl;
+  }
   return choice;
 }
 
@@ -113,7 +113,7 @@ void AirSystem::getAirQualityById() {
   cout << "Input sensor's ID (0 - "
        << container.size()-1 << "): ";
   int sensorID = getChoice(0, container.size()-1);
-  cout << endl << "Input date (format: yyy-mm-dd): ";
+  cout << endl << "Input date (format: yyyy-mm-dd): ";
   //TODO: to be optimized
   string date;
   cin >> date;
@@ -125,15 +125,15 @@ void AirSystem::getAirQualityById() {
   string time_end = date + "T00:00:00.0000000";
 
 
-  auto sen = this->container.at("Sensor" + to_string(sensorID))->container;
+  auto time2air = this->container.at("Sensor" + to_string(sensorID))->container;
   int sum = 0, count = 0;
-  for(auto it = sen.begin(); it != sen.end(); ++it){
+  for(auto it = time2air.begin(); it != time2air.end(); ++it){
     if(it->first >= time_begin && it->first <= time_end){
       sum += it->second.getAirQuality();
       count++;
     }
   }
-  cout << "Air quality level is = " << level[(int)(sum/count)] << endl;
+  cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
 }
 
 void AirSystem::getAirQualityByLocation() {}
