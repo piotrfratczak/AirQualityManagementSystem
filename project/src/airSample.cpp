@@ -4,7 +4,7 @@ AirSample::AirSample(){}
 
 AirSample::~AirSample(){}
 
-int AirSample::getAirQuality() {
+const int AirSample::getAirQuality() const {
   int quality = 11;
   for(auto& id2vec: table){
     for(int i = 0; i < id2vec.second.size() ; --i){

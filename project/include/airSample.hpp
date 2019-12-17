@@ -21,5 +21,5 @@ public:
 
   ~AirSample();
 
-  int getAirQuality();
+  const int getAirQuality() const;
 };
