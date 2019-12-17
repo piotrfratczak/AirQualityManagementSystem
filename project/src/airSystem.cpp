@@ -113,13 +113,13 @@ void AirSystem::getAirQualityById() {
   cout << "Input sensor's ID (0 - "
        << container.size()-1 << "): ";
   int sensorID = getChoice(0, container.size()-1);
-  cout << endl << "Input begin date (format: yyy-mm-dd): " ;
+  cout << endl << "Input begin date (format: yyyy-mm-dd): " ;
 
   //TODO: to be optimized
   string date;
   cin >> date;
   string time_begin = date + "T00:00:00.0000000";
-  cout << endl << "Input end date (format: yyy-mm-dd): ";
+  cout << endl << "Input end date (format: yyyy-mm-dd): ";
   cin >> date;
   string time_end = date + "T00:00:00.0000000";
 
@@ -157,7 +157,28 @@ void AirSystem::getAirQualityByLocation() {
   cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
 }
 
-void AirSystem::getInactiveSensors() {}
+void AirSystem::getInactiveSensors() {
+  cout << endl << "Input begin date (format: yyyy-mm-dd): " ;
+  //TODO: to be optimized
+  string date;
+  cin >> date;
+  string time_begin = date + "T00:00:00.0000000";
+  cout << endl << "Input end date (format: yyyy-mm-dd): ";
+  cin >> date;
+  string time_end = date + "T00:00:00.0000000";
+
+  int maxi = 0;
+  for(auto const& x : container){
+    int freq = x.second->getFrequency(time_begin, time_end);
+    maxi = max(freq, maxi);
+  }
+
+  cout << "The following sensors were inactive: " << endl;
+  for(auto const& x : container){
+    int freq = x.second->getFrequency(time_begin, time_end);
+    if(maxi > freq) cout << x.first << endl;
+  }
+}
 
 void AirSystem::getSimilarSensors() {}
 

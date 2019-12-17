@@ -17,10 +17,9 @@ public:
 
   Sensor(vector<string>);
 
-  Sensor();
-
   ~Sensor();
 
   void addSample(string, string, double);
 
+  int getFrequency(const string&, const string&);
 };
