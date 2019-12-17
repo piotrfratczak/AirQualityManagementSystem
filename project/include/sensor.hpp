@@ -23,5 +23,5 @@ public:
 
   void addSample(string, string, double);
 
-  int getFrequency();
+  string getAirQuality(string date);
 };
