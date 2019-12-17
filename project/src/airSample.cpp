@@ -1,17 +1,17 @@
 #include "../include/airSample.hpp"
 
-int AirSample::getQualityByNO2PM10(double value){
-  if(value > 200.0){
-    return 0;
-  } else if(value >= 150.0){
-    return 1;
-  }
-}
-
 AirSample::AirSample(){}
 
 AirSample::~AirSample(){}
 
-string AirSample::getAirQuality() {
-  return "no";
+int AirSample::getAirQuality() {
+  int q = 11;
+  for(auto& id2vec: table){
+    for(int i = 0; i < id2vec.second.size() ; --i){
+      if(this->container.at(id2vec.first) > id2vec.second[i]){
+        q = min(i,q); break;
+      }
+    }
+  }
+  return q;
 }

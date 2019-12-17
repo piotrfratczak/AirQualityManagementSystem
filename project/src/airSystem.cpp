@@ -1,67 +1,14 @@
 #include "../include/airSystem.hpp"
-#include <algorithm>
 
 
 AirSystem::AirSystem(){}
 
 AirSystem::~AirSystem(){}
 
-void AirSystem::parseSensor(string filename){
-  //relative path is based on the path of makefile.
-  ifstream file(filename);
-  string line;
-  if(!file.is_open()){
-    cout << "There is no such file!" << endl;
-    exit(-1);
-  }
-  getline(file,line);
-  while(getline(file,line)){
-    string temp = line;
-    std::size_t left = temp.find_first_of('"');
-    temp=temp.substr(left+1);
-    line=temp;
-    vector<string> line_split;
-    for(int i = 0; i < 4; ++i){
-      std::size_t right = line.find_first_of(';');
-      temp = line.substr(0, right);
-      line = line.substr(right+1);
-      line_split.push_back(temp);
-    }
-    Sensor* temp_s = new Sensor(line_split[0],stod(line_split[1]),stod(line_split[2]),line_split[3]);
-    this->container.emplace(line_split[0], temp_s);
-  }
-}
 
-
-void AirSystem::parseAttribute(string filename){
+vector<vector<string>> AirSystem::parseFile(string filename){
   //relative path is based on the path of makefile.
-  ifstream file(filename);
-  string line;
-  if(!file.is_open()){
-    cout << "There is no such file!" << endl;
-    exit(-1);
-  }
-  getline(file,line);
-  while(getline(file,line)){
-    string temp = line;
-    std::size_t left = temp.find_first_of('"');
-    temp=temp.substr(left+1);
-    line=temp;
-    vector<string> line_split;
-    for(int i = 0; i < 3; ++i){
-      std::size_t right = line.find_first_of(';');
-      temp = line.substr(0, right);
-      line = line.substr(right+1);
-      line_split.push_back(temp);
-    }
-    Attribute* chem = new Attribute(line_split[0], line_split[1], line_split[2]);
-    this->attributes.emplace(line_split[0], *chem);
-  }
-}
-
-void AirSystem::parseData(string filename){
-  cout << endl << "Fetching data..." << endl << endl;
-  //relative path is based on the path of makefile.
+  vector<vector<string>> ans;
   ifstream file(filename);
   string line;
   if(!file.is_open()){
@@ -85,6 +32,37 @@ void AirSystem::parseData(string filename){
       line = line.substr(right+1);
       line_split.push_back(temp);
     }
+    ans.push_back(line_split);
+  }
+  return ans;
+}
+
+void AirSystem::parseSensor(string filename){
+  //relative path is based on the path of makefile.
+  auto ans = this->parseFile(filename);
+  for(int i = 0; i < ans.size(); ++i){
+    auto line_split = ans[0];
+    Sensor* temp_s = new Sensor(line_split[0],stod(line_split[1]),stod(line_split[2]),line_split[3]);
+    this->container.emplace(line_split[0], temp_s);
+  }
+}
+
+
+void AirSystem::parseAttribute(string filename){
+  //relative path is based on the path of makefile.
+  auto ans = this->parseFile(filename);
+  for(int i = 0; i < ans.size(); ++i){
+    auto line_split = ans[0];
+    Attribute* chem = new Attribute(line_split[0], line_split[1], line_split[2]);
+    this->attributes.emplace(line_split[0], *chem);
+  }
+}
+
+void AirSystem::parseData(string filename){
+  cout << endl << "Fetching data..." << endl << endl;
+  auto ans = this->parseFile(filename);
+  for(int i = 0; i < ans.size(); ++i){
+    auto line_split = ans[i];
     if(line_split[1].size() > 0)
       this->container.at(line_split[1])->addSample(line_split[0],line_split[2], stod(line_split[3]));
   }
@@ -122,12 +100,12 @@ void AirSystem::menu() {
 
 int AirSystem::getChoice(int minChoice, int maxChoice){
   int choice;
-  while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
-    char c;
-    while ((c = char(getchar())) != '\n' && c != EOF);
-    cout << "There is no such option." << endl
-         << "Enter an integer between " << minChoice << " and " << maxChoice << "." << endl;
-  }
+//  while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
+//    char c;
+//    while ((c = char(getchar())) != '\n' && c != EOF);
+//    cout << "There is no such option." << endl
+//         << "Enter an integer between " << minChoice << " and " << maxChoice << "." << endl;
+//  }
   return choice;
 }
 
@@ -155,7 +133,7 @@ void AirSystem::getAirQualityById() {
       count++;
     }
   }
-  cout << "Air quality is = " << sum/count << endl;
+  cout << "Air quality level is = " << sum/count << endl;
 }
 
 void AirSystem::getAirQualityByLocation() {}

@@ -1,5 +1,4 @@
 #include "../include/airSystem.hpp"
-#include <fstream>
 
 int main(){
 
@@ -11,7 +10,7 @@ int main(){
 
   test.parseData("./data/data_10sensors_1year.csv");
 
-  test.menu();
+//  test.menu();
 
   return 0;
 }

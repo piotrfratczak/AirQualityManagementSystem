@@ -1,5 +1,4 @@
 #include "sensor.hpp"
-#include <fstream>
 //! \file     system.hpp
 //! \authors
 //! \date     8 December 2019
@@ -23,6 +22,8 @@ private:
   void getInactiveSensors();
 
   void getSimilarSensors();
+
+  vector<vector<string>> parseFile(string);
 
 public:
 

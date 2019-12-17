@@ -1,5 +1,4 @@
 #include "attribute.hpp"
-#include <unordered_map>
 
 //! \file     airSample.hpp
 //! \authors
@@ -7,11 +6,11 @@
 
 
 
+
 class AirSample{
 
 private:
 
-  int getQualityByNO2PM10(double value);
 
 public:
 
@@ -22,5 +21,5 @@ public:
 
   ~AirSample();
 
-  string getAirQuality();
+  int getAirQuality();
 };

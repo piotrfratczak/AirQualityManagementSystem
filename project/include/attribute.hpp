@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-#include <vector>
-
-using namespace std;
+#include "standard.hpp"
 
 //! \file     attribute.hpp
 //! \authors
