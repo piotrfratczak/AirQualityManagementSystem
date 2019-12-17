@@ -8,13 +8,19 @@
 
 
 class AirSample{
+
+private:
+
+  int getQualityByNO2PM10(double value);
+
 public:
-  /*
-   * map id to value
-   */
+
+  // map attribute id to value
   unordered_map<string, double> container;
 
   AirSample();
 
   ~AirSample();
+
+  string getAirQuality();
 };

@@ -11,7 +11,8 @@ private:
   // Map id to sensor
   unordered_map<string, Sensor*> container;
 
-  unordered_map<string, Attribute> attr;
+  // Map id to attribute
+  unordered_map<string, Attribute> attributes;
 
   int getChoice(int, int);
 

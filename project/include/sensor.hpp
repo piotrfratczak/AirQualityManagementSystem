@@ -9,9 +9,8 @@ public:
   double latitude;
   double longitude;
   string description;
-  /*
-   * map time to airSample
-   */
+
+  // map date to AirSample
   unordered_map<string, AirSample> container;
 
   Sensor(string, double, double, string);
@@ -23,4 +22,6 @@ public:
   ~Sensor();
 
   void addSample(string, string, double);
+
+  string getAirQuality(string date);
 };

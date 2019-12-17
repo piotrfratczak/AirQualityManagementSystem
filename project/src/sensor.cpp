@@ -20,3 +20,8 @@ void Sensor::addSample(string time, string id_chem, double value){
   }
   this->container.at(time).container.emplace(id_chem,value);
 }
+
+string Sensor::getAirQuality(string date) {
+  //TODO: search the closest date
+  return container.at(date).getAirQuality();
+}
