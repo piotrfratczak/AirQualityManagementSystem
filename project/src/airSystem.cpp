@@ -100,12 +100,12 @@ void AirSystem::menu() {
 
 int AirSystem::getChoice(int minChoice, int maxChoice){
   int choice;
-//  while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
-//    char c;
-//    while ((c = char(getchar())) != '\n' && c != EOF);
-//    cout << "There is no such option." << endl
-//         << "Enter an integer between " << minChoice << " and " << maxChoice << "." << endl;
-//  }
+  while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
+    char c;
+    while ((c = char(getchar())) != '\n' && c != EOF);
+    cout << "There is no such option." << endl
+         << "Enter an integer between " << minChoice << " and " << maxChoice << "." << endl;
+  }
   return choice;
 }
 
@@ -145,7 +145,7 @@ void AirSystem::getAirQualityByLocation() {
   cin >> sensorID;
   sensorID = "Sensor" + sensorID;
   int sum = 0, count = 0;
-  if(this->container.find(id) != this->container.end()){
+  if(this->container.find(sensorID) != this->container.end()){
     auto time2air = this->container.at(sensorID)->container;
     for(auto it = time2air.begin(); it != time2air.end(); ++it){
         sum += it->second.getAirQuality();
