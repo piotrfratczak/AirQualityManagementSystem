@@ -10,7 +10,8 @@ int main(){
 
   test.parseData("./data/data_10sensors_1year.csv");
 
-  test.menu();
+//  test.menu();
+
 
   return 0;
 }
