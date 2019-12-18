@@ -7,7 +7,7 @@ AirSystem::~AirSystem(){}
 
 int AirSystem::getChoice(int minChoice, int maxChoice){
   int choice;
-  while(1 != scanf_s("%d", &choice) || choice < minChoice || choice > maxChoice){
+  while(1 != scanf("%d", &choice) || choice < minChoice || choice > maxChoice){
     char c;
     while ((c = char(getchar())) != '\n' && c != EOF);
     cout << "There is no such option." << endl
@@ -16,41 +16,47 @@ int AirSystem::getChoice(int minChoice, int maxChoice){
   return choice;
 }
 
-void AirSystem::getAirQualityById() {
-  cout << "Input sensor's ID (0 - "
-       << container.size()-1 << "): ";
-  int sensorID = getChoice(0, container.size()-1);
+pair<string, string> AirSystem::getInputTime(){
+  string date_begin, date_end;
   cout << endl << "Input begin date (format: yyyy-mm-dd): " ;
-
-  //TODO: to be optimized
-  string date;
-  cin >> date;
-  string time_begin = date + "T00:00:00.0000000";
+  cin >> date_begin;
   cout << endl << "Input end date (format: yyyy-mm-dd): ";
-  cin >> date;
-  string time_end = date + "T00:00:00.0000000";
+  cin >> date_end;
+  return make_pair(date_begin, date_end);
+}
 
+int AirSystem::getInputId(){
+  cout << "Input sensor's ID (0 - " << container.size()-1 << "): ";
+  int sensorID = getChoice(0, container.size()-1);
+  return sensorID;
+}
+
+int AirSystem::chooseLoc(){
+  cout << "Please choose one location :" << endl;
+  cout << "Sensor ID \t\t latitude \t\t longitude " << endl;
+  for(auto it = this->container.begin(); it != this->container.end(); ++it)
+    cout << it->first << " \t " << it->second->latitude << "\t" << it->second->longitude << endl;
+  return this->getInputId();
+}
+
+void AirSystem::getAirQualityById(int sensorID, pair<string, string> date) {
+  //TODO: to be optimized
+  string time_begin = date.first + "T00:00:00.0000000";
+  string time_end = date.second + "T00:00:00.0000000";
   auto time2air = this->container.at("Sensor" + to_string(sensorID))->container;
   int sum = 0, count = 0;
   for(auto it = time2air.begin(); it != time2air.end(); ++it){
     if(it->first >= time_begin && it->first <= time_end){
       sum += it->second.getAirQuality();
       count++;
+//      cout << "time = " << it->first << "\t count = " << count << "\t sum = " << sum << endl;
     }
   }
   cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
 }
 
-void AirSystem::getAirQualityByLocation() {
-  cout << "Please choose one location :" << endl;
-  cout << "Sensor ID \t\t latitude \t\t longitude " << endl;
-  for(auto it = this->container.begin(); it != this->container.end(); ++it){
-    cout << it->first << " \t " << it->second->latitude << "\t" << it->second->longitude << endl;
-  }
-  string sensorID;
-  cout << "Choose ID : ";
-  cin >> sensorID;
-  sensorID = "Sensor" + sensorID;
+void AirSystem::getAirQualityByLocation(int ID) {
+  string sensorID = "Sensor" + to_string(ID);
   int sum = 0, count = 0;
   if(this->container.find(sensorID) != this->container.end()){
     auto time2air = this->container.at(sensorID)->container;
@@ -60,26 +66,20 @@ void AirSystem::getAirQualityByLocation() {
     }
   }
   else
-    cout << "Can not find this id" << endl;
+    cout << "Can not find this id!" << endl;
   cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
 }
 
-void AirSystem::getInactiveSensors() {
-  cout << endl << "Input begin date (format: yyyy-mm-dd): " ;
+void AirSystem::getInactiveSensors(pair<string, string> date) {
   //TODO: to be optimized
-  string date;
-  cin >> date;
-  string time_begin = date + "T00:00:00.0000000";
-  cout << endl << "Input end date (format: yyyy-mm-dd): ";
-  cin >> date;
-  string time_end = date + "T00:00:00.0000000";
 
+  string time_begin = date.first + "T00:00:00.0000000";
+  string time_end = date.second + "T00:00:00.0000000";
   int maxi = 0;
   for(auto const& x : container){
     int freq = x.second->getFrequency(time_begin, time_end);
     maxi = max(freq, maxi);
   }
-
   cout << "The following sensors were inactive: " << endl;
   for(auto const& x : container){
     int freq = x.second->getFrequency(time_begin, time_end);
@@ -87,15 +87,10 @@ void AirSystem::getInactiveSensors() {
   }
 }
 
-void AirSystem::getSimilarSensors() {
-  cout << endl << "Input begin date (format: yyyy-mm-dd): " ;
+void AirSystem::getSimilarSensors(pair<string, string> date) {
   //TODO: to be optimized
-  string date;
-  cin >> date;
-  string time_begin = date + "T00:00:00.0000000";
-  cout << endl << "Input end date (format: yyyy-mm-dd): ";
-  cin >> date;
-  string time_end = date + "T00:00:00.0000000";
+  string time_begin = date.first + "T00:00:00.0000000";
+  string time_end = date.second + "T00:00:00.0000000";
 
   int size = container.size();
   int* readings = new int[size];
@@ -195,27 +190,37 @@ void AirSystem::parseData(string filename){
 }
 
 void AirSystem::menu() {
+
   cout << "0. Quit"                               << endl
        << "1. Get air quality by sensor ID"       << endl
        << "2. Get air quality by location"        << endl
        << "3. Get inactive sensors"               << endl
        << "4. Get sensors with similar readings"  << endl;
 
-  switch(getChoice(0, 4)){
+    switch(getChoice(0, 4)){
     case 0:
       break;
-    case 1:
-      getAirQualityById();
+    case 1:{
+      int sensorID =  this->getInputId();
+      auto date = this->getInputTime();
+      this->getAirQualityById(sensorID, date);
       break;
-    case 2:
-      getAirQualityByLocation();
+    }
+    case 2:{
+      int id = this->chooseLoc();
+      this->getAirQualityByLocation(id);
       break;
-    case 3:
-      getInactiveSensors();
+    }
+    case 3:{
+      auto date = this->getInputTime();
+      getInactiveSensors(date);
       break;
-    case 4:
-      getSimilarSensors();
+    }
+    case 4:{
+      auto date = this->getInputTime();
+      getSimilarSensors(date);
       break;
+    }
     default:
       exit(-1);
   }

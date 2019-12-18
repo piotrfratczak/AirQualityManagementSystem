@@ -15,15 +15,22 @@ private:
 
   int getChoice(int, int);
 
-  void getAirQualityById();
+  void getAirQualityById(int, pair<string, string>);
 
-  void getAirQualityByLocation();
+  void getAirQualityByLocation(int sensorID);
 
-  void getInactiveSensors();
+  void getInactiveSensors(pair<string, string>);
 
-  void getSimilarSensors();
+  void getSimilarSensors(pair<string, string>);
 
   vector<vector<string>> parseFile(string);
+
+  pair<string, string> getInputTime();
+
+  int getInputId();
+
+  int chooseLoc();
+
 
 public:
 
