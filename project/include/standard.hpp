@@ -1,6 +1,9 @@
 #ifndef STANDARD_H
 #define STANDARD_H
 
+//! \file     standard.hpp
+//! \authors  XIE Yuxuan
+//! \date     18 December 2019
 
 #include <algorithm>
 #include <fstream>

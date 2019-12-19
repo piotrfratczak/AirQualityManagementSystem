@@ -56,8 +56,9 @@ bool Test::testAirQualityById(){
 
 bool Test::testAirQualityByLoc(){
   auto test_id = this->generateTestID();
+  auto test_date = this->generateTestdate();
   for(int i = 0; i < this->caseNum; ++i){
-    this->test.getAirQualityByLocation(test_id[i]);
+    this->test.getAirQualityByLocation(test_id[i], test_date[i]);
   }
   return true;
 }

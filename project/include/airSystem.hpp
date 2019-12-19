@@ -43,7 +43,7 @@ public:
 
   void getAirQualityById(int, pair<string, string>);
 
-  void getAirQualityByLocation(int sensorID);
+  void getAirQualityByLocation(int sensorID, pair<string, string>);
 
   void getInactiveSensors(pair<string, string>);
 

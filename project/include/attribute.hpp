@@ -1,8 +1,8 @@
-#include "standard.hpp"
-
 //! \file     attribute.hpp
 //! \authors
 //! \date     8 December 2019
+
+#include "standard.hpp"
 
 
 class Attribute{

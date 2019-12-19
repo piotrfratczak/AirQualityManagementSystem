@@ -53,24 +53,29 @@ void AirSystem::getAirQualityById(int sensorID, pair<string, string> date) {
     if(it->first >= time_begin && it->first <= time_end){
       sum += it->second.getAirQuality();
       count++;
-//      cout << "time = " << it->first << "\t count = " << count << "\t sum = " << sum << endl;
     }
   }
   cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
 }
 
-void AirSystem::getAirQualityByLocation(int ID) {
+void AirSystem::getAirQualityByLocation(int ID, pair<string, string> date) {
   string sensorID = "Sensor" + to_string(ID);
   int sum = 0, count = 0;
+  string time_begin = date.first + "T00:00:00.0000000";
+  string time_end = date.second + "T00:00:00.0000000";
+
   if(this->container.find(sensorID) != this->container.end()){
     auto time2air = this->container.at(sensorID)->container;
     for(auto it = time2air.begin(); it != time2air.end(); ++it){
-      sum += it->second.getAirQuality();
-      count++;
+      if(it->first >= time_begin && it->first <= time_end){
+        sum += it->second.getAirQuality();
+        count++;
+      }
     }
   }
   else
     cout << "Can not find this id!" << endl;
+
   cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
 }
 
@@ -204,6 +209,7 @@ void AirSystem::menu() {
 
     switch(getChoice(0, 4)){
     case 0:
+      exit(0);
       break;
     case 1:{
       int sensorID =  this->getInputId();
@@ -213,7 +219,8 @@ void AirSystem::menu() {
     }
     case 2:{
       int id = this->chooseLoc();
-      this->getAirQualityByLocation(id);
+      auto date = this->getInputTime();
+      this->getAirQualityByLocation(id, date);
       break;
     }
     case 3:{
