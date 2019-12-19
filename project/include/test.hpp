@@ -11,7 +11,11 @@ public:
 
   ~Test();
 
-  vector<pair<string, string>> generateTestCase();
+  void readFiles();
+
+  vector<pair<string, string>> generateTestdate();
+
+  vector<int> generateTestID();
 
   bool testAirQualityById();
 

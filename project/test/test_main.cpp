@@ -1,7 +1,10 @@
 #include "../include/test.hpp"
 
 
-void main(){
+int main(){
   Test test;
-  cout << "Test " << endl;
+
+//  test.readFiles();
+
+  return 0;
 }

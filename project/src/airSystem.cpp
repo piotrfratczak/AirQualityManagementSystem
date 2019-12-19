@@ -5,6 +5,10 @@ AirSystem::AirSystem(){}
 
 AirSystem::~AirSystem(){}
 
+int AirSystem::size(){
+  return this->container.size();
+}
+
 int AirSystem::getChoice(int minChoice, int maxChoice){
   int choice;
   while(1 != scanf("%d", &choice) || choice < minChoice || choice > maxChoice){

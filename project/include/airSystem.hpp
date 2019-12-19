@@ -13,15 +13,8 @@ private:
   // Map id to attribute
   unordered_map<string, Attribute> attributes;
 
+
   int getChoice(int, int);
-
-  void getAirQualityById(int, pair<string, string>);
-
-  void getAirQualityByLocation(int sensorID);
-
-  void getInactiveSensors(pair<string, string>);
-
-  void getSimilarSensors(pair<string, string>);
 
   vector<vector<string>> parseFile(string);
 
@@ -44,6 +37,16 @@ public:
 
   void parseData(string);
 
+  int size();
+
   void menu();
+
+  void getAirQualityById(int, pair<string, string>);
+
+  void getAirQualityByLocation(int sensorID);
+
+  void getInactiveSensors(pair<string, string>);
+
+  void getSimilarSensors(pair<string, string>);
 
 };
