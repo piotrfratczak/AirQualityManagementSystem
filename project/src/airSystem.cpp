@@ -21,11 +21,22 @@ int AirSystem::getChoice(int minChoice, int maxChoice){
 }
 
 pair<string, string> AirSystem::getInputTime(){
-  string date_begin, date_end;
-  cout << endl << "Input begin date (format: yyyy-mm-dd): " ;
-  cin >> date_begin;
-  cout << endl << "Input end date (format: yyyy-mm-dd): ";
-  cin >> date_end;
+  string date_begin, date_end, temp = "yyyy-mm-dd";
+  while(1){
+    cout << endl << "Input begin date (format: yyyy-mm-dd): " ;
+    cin >> date_begin;
+    if( date_begin.size() != temp.size() ){
+      cout << "begin date format wrong" << endl;
+      continue;
+    }
+    cout << endl << "Input end date (format: yyyy-mm-dd): ";
+    cin >> date_end;
+    if( date_end.size() != temp.size() ){
+      cout << "end date format wrong" << endl;
+      continue;
+    }
+    break;
+  }
   return make_pair(date_begin, date_end);
 }
 
@@ -63,7 +74,6 @@ void AirSystem::getAirQualityByLocation(int ID, pair<string, string> date) {
   int sum = 0, count = 0;
   string time_begin = date.first + "T00:00:00.0000000";
   string time_end = date.second + "T00:00:00.0000000";
-
   if(this->container.find(sensorID) != this->container.end()){
     auto time2air = this->container.at(sensorID)->container;
     for(auto it = time2air.begin(); it != time2air.end(); ++it){
@@ -76,7 +86,10 @@ void AirSystem::getAirQualityByLocation(int ID, pair<string, string> date) {
   else
     cout << "Can not find this id!" << endl;
 
-  cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
+  if(count)
+    cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
+  else
+    cout << "There is no such date!" << endl;
 }
 
 void AirSystem::getInactiveSensors(pair<string, string> date) {
@@ -115,8 +128,7 @@ void AirSystem::getSimilarSensors(pair<string, string> date) {
         count++;
       }
     }
-    if(count)
-      readings[i] = int(sum/count);
+    if(count) readings[i] = int(sum/count);
     used[i] = false;
     ++i;
   }
