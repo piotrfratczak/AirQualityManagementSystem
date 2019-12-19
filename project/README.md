@@ -5,7 +5,7 @@ This project consists of four part:
   + include : hpp files
   + test : cpp files for executable files
 
-### How to run : ###
+## How to run :
 ```
 1. cd project
 2. mkdir build
