@@ -110,7 +110,8 @@ void AirSystem::getSimilarSensors(pair<string, string> date) {
         count++;
       }
     }
-    readings[i] = int(sum/count);
+    if(count)
+      readings[i] = int(sum/count);
     used[i] = false;
     ++i;
   }
