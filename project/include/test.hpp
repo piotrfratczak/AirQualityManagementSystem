@@ -1,4 +1,4 @@
-//! \file     standard.hpp
+//! \file     test.hpp
 //! \authors  XIE Yuxuan
 //! \date     18 December 2019
 

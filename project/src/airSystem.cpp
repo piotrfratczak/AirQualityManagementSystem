@@ -110,7 +110,10 @@ void AirSystem::getAirQualityById(int sensorID, pair<string, string> date) {
       count++;
     }
   }
-  cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
+  if(count)
+    cout << "Air quality level is: " << level[(int)(sum/count)] << endl;
+  else
+    cout << "There is no such date!" << endl;
 }
 
 void AirSystem::getAirQualityByLocation(int ID, pair<string, string> date) {
@@ -154,7 +157,8 @@ void AirSystem::getInactiveSensors(pair<string, string> date) {
       cout << x.first << endl;
     }
   }
-  if(count == 0) cout << "There were no inactive sensors during chosen period." << endl;
+  if(count == 0)
+    cout << "There were no inactive sensors during chosen period." << endl;
 }
 
 void AirSystem::getSimilarSensors(pair<string, string> date) {
@@ -192,6 +196,8 @@ void AirSystem::getSimilarSensors(pair<string, string> date) {
       }
     }
   }
+
+
 
   delete[] readings;
   delete[] used;
