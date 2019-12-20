@@ -20,23 +20,68 @@ int AirSystem::getChoice(int minChoice, int maxChoice){
   return choice;
 }
 
-pair<string, string> AirSystem::getInputTime(){
-  string date_begin, date_end, temp = "yyyy-mm-dd";
-  while(1){
-    cout << endl << "Input begin date (format: yyyy-mm-dd): " ;
-    cin >> date_begin;
-    if( date_begin.size() != temp.size() ){
-      cout << "begin date format wrong" << endl;
+bool AirSystem::isANumber(string str){
+  for(char c : str){
+    if(c < '0' || c > '9') return false;
+  }
+  return true;
+}
+
+int AirSystem::strToInt(string str){
+  char number = 0;
+  for(char c : str){
+    number = number*10 + c - '0';
+  }
+  return number;
+}
+
+string AirSystem::getTimestamp(string format = "yyyy-mm-dd"){
+  string date;
+  while(true) {
+    cin >> date;
+    string day = date.substr(8,2);
+    string month = date.substr(5,2);
+    string year = date.substr(0,4);
+    if (date.size() != format.size() || date[4] != '-' || date[7] != '-'){
+      cout << "Wrong date input format (" << format << ")." << endl;
       continue;
     }
-    cout << endl << "Input end date (format: yyyy-mm-dd): ";
-    cin >> date_end;
-    if( date_end.size() != temp.size() ){
-      cout << "end date format wrong" << endl;
+    if (!isANumber(year) || !isANumber(month) || !isANumber(day) ||
+        strToInt(month) > 12 || strToInt(day) > months[strToInt(month)]) {
+
+      cout << "Wrong date input (date not valid)." << endl;
       continue;
     }
     break;
   }
+  return date;
+}
+
+pair<string, string> AirSystem::getInputTime(){
+  string date_begin;
+  string date_end;
+  while(true){
+    cout << endl << "Input begin date (format: yyyy-mm-dd): ";
+    date_begin = getTimestamp();
+    cout << endl << "Input end date (format: yyyy-mm-dd): ";
+    date_end = getTimestamp();
+
+    int day_begin = strToInt(date_begin.substr(8,2));
+    int month_begin = strToInt(date_begin.substr(5,2));
+    int year_begin = strToInt(date_begin.substr(0,4));
+    int day_end = strToInt(date_end.substr(8,2));
+    int month_end = strToInt(date_end.substr(5,2));
+    int year_end = strToInt(date_end.substr(0,4));
+    int begin = year_begin*10000 + month_begin*100 + day_begin;
+    int end = year_end*10000 + month_end*100 + day_end;
+
+    if(begin > end){
+      cout << "Beginning date is bigger than ending date.";
+    }else{
+      break;
+    }
+  }
+
   return make_pair(date_begin, date_end);
 }
 
@@ -55,7 +100,6 @@ int AirSystem::chooseLoc(){
 }
 
 void AirSystem::getAirQualityById(int sensorID, pair<string, string> date) {
-  //TODO: to be optimized
   string time_begin = date.first + "T00:00:00.0000000";
   string time_end = date.second + "T00:00:00.0000000";
   auto time2air = this->container.at("Sensor" + to_string(sensorID))->container;
@@ -93,7 +137,6 @@ void AirSystem::getAirQualityByLocation(int ID, pair<string, string> date) {
 }
 
 void AirSystem::getInactiveSensors(pair<string, string> date) {
-  //TODO: to be optimized
 
   string time_begin = date.first + "T00:00:00.0000000";
   string time_end = date.second + "T00:00:00.0000000";
@@ -102,15 +145,20 @@ void AirSystem::getInactiveSensors(pair<string, string> date) {
     int freq = x.second->getFrequency(time_begin, time_end);
     maxi = max(freq, maxi);
   }
-  cout << "The following sensors were inactive: " << endl;
+  int count = 0;
   for(auto const& x : container){
     int freq = x.second->getFrequency(time_begin, time_end);
-    if(maxi > freq) cout << x.first << endl;
+    if(maxi > freq){
+      ++count;
+      if(count == 1) cout << endl << "The following sensors were inactive: " << endl;
+      cout << x.first << endl;
+    }
   }
+  if(count == 0) cout << "There were no inactive sensors during chosen period." << endl;
 }
 
 void AirSystem::getSimilarSensors(pair<string, string> date) {
-  //TODO: to be optimized
+
   string time_begin = date.first + "T00:00:00.0000000";
   string time_end = date.second + "T00:00:00.0000000";
 
@@ -133,12 +181,12 @@ void AirSystem::getSimilarSensors(pair<string, string> date) {
     ++i;
   }
 
-  //TODO: make it robust
   for(i = 0; i < size-1; ++i){
     if(used[i]) continue;
-    cout << endl << "Reading of sensor" << i << " were similar to :" << endl;
+
     for(int j = i+1; j < size; ++j){
       if(readings[i] == readings[j]){
+        if(j == i+1) cout << endl << "Reading of sensor" << i << " were similar to:" << endl;
         cout << "  sensor" << j << endl;
         used[j] = true;
       }

@@ -20,5 +20,6 @@ using namespace std;
 
 extern unordered_map<string,vector<int>> table;
 extern vector<string> level;
+extern vector<int> months;
 
 #endif

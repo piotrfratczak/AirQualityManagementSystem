@@ -16,6 +16,12 @@ private:
 
   int getChoice(int, int);
 
+  bool isANumber(string);
+
+  int strToInt(string);
+
+  string getTimestamp(string);
+
   vector<vector<string>> parseFile(string);
 
   pair<string, string> getInputTime();
