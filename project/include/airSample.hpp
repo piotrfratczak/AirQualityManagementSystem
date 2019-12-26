@@ -11,6 +11,7 @@ class AirSample{
 
 private:
 
+
 public:
   // map attribute id to value
   unordered_map<string, double> container;

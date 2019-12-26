@@ -8,40 +8,57 @@ BIN_PATH = $(BUILD_PATH)/bin
 TEST_BUILD_PATH = $(BUILD_PATH)/test
 SRC_EXT = cpp
 
+CPLEXPATH			:=	/opt/ibm/ILOG/CPLEX_Studio1263
+
+LIBFORMAT			:=	static_pic
+SYSTEM			:=	x86-64_linux
+
+
+CPLEXDIR			:=	$(CPLEXPATH)/cplex
+CONCERTDIR		:= 	$(CPLEXPATH)/concert
+CPLEXBINDIR		:=	$(CPLEXDIR)/bin/$(SYSTEM)
+CPLEXLIBDIR		:=	$(CPLEXDIR)/lib/$(SYSTEM)/$(LIBFORMAT)
+CONCERTLIBDIR	:=	$(CONCERTDIR)/lib/$(SYSTEM)/$(LIBFORMAT)
+
+CPLEXFLAGS		:= -isystem$(CPLEXDIR)/include -isystem$(CONCERTDIR)/include -DNDEBUG
+CPLEXLNFLAGS  := -L$(CPLEXLIBDIR) -lilocplex -lcplex -L$(CONCERTLIBDIR) -lconcert -lm -m64 -lpthread
+
 SOURCES = $(shell find $(SRC_PATH) -name '*.$(SRC_EXT)' | sort -k 1nr | cut -f2-)
 TESTS = $(shell find $(TEST_PATH) -name '*.$(SRC_EXT)' | sort -k 1nr | cut -f2-)
 OBJECTS = $(SOURCES:$(SRC_PATH)/%.$(SRC_EXT)=$(BUILD_PATH)/%.o)
 
 BIN_NAME += $(TESTS:$(TEST_PATH)/%.$(SRC_EXT)=$(BIN_PATH)/%)
 
-CFLAGS += -g -O0
+CFLAGS += -g -O0 -pedantic -std=c++1y -DIL_STD
 
 .PRECIOUS: $(OBJECTS) $(TEST_BUILD_PATH)/%.o
 
-
 all : path $(BIN_NAME)
-	
+
+CXX = clang++ 
+
 path :
 	@mkdir -p $(BUILD_PATH)
 	@mkdir -p $(TEST_BUILD_PATH)
 	@mkdir -p $(BIN_PATH)
 
 $(BUILD_PATH)/%.d: $(SRC_PATH)/%.$(SRC_EXT)
+	@mkdir -p $(BUILD_PATH)
 	@set -e; rm -f $@; \
-	$(CC) -M $(CFLAGS) $< > $@.$$$$; \
+	$(CXX) -M $(CFLAGS) $(CPLEXFLAGS) $< > $@.$$$$; \
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$
 
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT) $(BUILD_PATH)/%.d
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CFLAGS) -c $< $(CPLEXFLAGS) -o $@
 
 $(TEST_BUILD_PATH)/%.o: $(TEST_PATH)/%.$(SRC_EXT)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CFLAGS) -c $< $(CPLEXFLAGS) -o $@
 
 $(BIN_PATH)/% : $(OBJECTS)  $(TEST_BUILD_PATH)/%.o 
-	$(CXX) $^ -o $@ 
+	$(CXX) -o $@ $^ $(CPLEXLNFLAGS) 
 	
 -include $(OBJECTS:$(BUILD_PATH)/%.o=$(BUILD_PATH)/%.d)	
 
 clean:
-	rm -rf $(BUILD_PATH)/*
+	rm -rf $(BUILD_PATH)

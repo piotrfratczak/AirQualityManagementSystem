@@ -15,6 +15,9 @@
 #include <cstdio>
 #include <sstream>
 #include <iomanip>
+#include <ilcplex/ilocplex.h>
+
+
 
 using namespace std;
 
