@@ -10,8 +10,7 @@
 class AirSample{
 
 private:
-
-
+  typedef unordered_map<int, int> sss;
 public:
   // map attribute id to value
   unordered_map<string, double> container;

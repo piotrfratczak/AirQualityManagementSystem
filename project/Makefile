@@ -31,11 +31,14 @@ BIN_NAME += $(TESTS:$(TEST_PATH)/%.$(SRC_EXT)=$(BIN_PATH)/%)
 
 CFLAGS += -g -O0 -pedantic -std=c++1y -DIL_STD
 
+#FLAGS += -g -O0 -pedantic -std=c++1y -DIL_STD
+
+
 .PRECIOUS: $(OBJECTS) $(TEST_BUILD_PATH)/%.o
 
 all : path $(BIN_NAME)
 
-CXX = clang++ 
+CXX = g++ 
 
 path :
 	@mkdir -p $(BUILD_PATH)
@@ -45,7 +48,7 @@ path :
 $(BUILD_PATH)/%.d: $(SRC_PATH)/%.$(SRC_EXT)
 	@mkdir -p $(BUILD_PATH)
 	@set -e; rm -f $@; \
-	$(CXX) -M $(CFLAGS) $(CPLEXFLAGS) $< > $@.$$$$; \
+	$(CC) -M $(CFLAGS) $(CPLEXFLAGS) $< > $@.$$$$; \
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$
 
@@ -57,6 +60,9 @@ $(TEST_BUILD_PATH)/%.o: $(TEST_PATH)/%.$(SRC_EXT)
 
 $(BIN_PATH)/% : $(OBJECTS)  $(TEST_BUILD_PATH)/%.o 
 	$(CXX) -o $@ $^ $(CPLEXLNFLAGS) 
+
+py:
+	$(CXX) -O3 -Wall -shared -std=c++11 -DIL_STD -fPIC $(CPLEXFLAGS) `python3 -m pybind11 --includes` pm.cpp src/* -o testyx`python3-config --extension-suffix`
 	
 -include $(OBJECTS:$(BUILD_PATH)/%.o=$(BUILD_PATH)/%.d)	
 

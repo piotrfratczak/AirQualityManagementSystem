@@ -5,6 +5,7 @@ AirSample::AirSample(){}
 AirSample::~AirSample(){}
 
 const int AirSample::getAirQuality() const {
+  sss x;
   int quality = 11;
   float mean = 0, count = 0;
   for(auto& id2vec: table){
